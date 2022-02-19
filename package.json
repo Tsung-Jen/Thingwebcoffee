@@ -1,0 +1,15 @@
+{
+  "name": "ThingWebCoffee",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jose Maza",
+  "license": "MIT",
+  "dependencies": {
+    "@node-wot/binding-http": "^0.7.1",
+    "@node-wot/core": "^0.7.1"
+  }
+}
