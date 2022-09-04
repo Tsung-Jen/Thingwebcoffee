@@ -226,10 +226,18 @@ Assumes one medium americano if not specified, but time and mode are mandatory f
       // Set up a handler for makeDrink action
       thing.setActionHandler('makeDrink', (params, options) => {
 
+        /*if (params && typeof params === 'object' && 'time' in params && 'mode' in params) {
+
+          // Use default values if not provided
+          params['drinkId'] = ('drinkId' in params) ? params['drinkId'] : 'americano';
+          params['size'] = ('size' in params) ? params['size'] : 'm';
+          params['quantity'] = ('quantity' in params) ? params['quantity'] : 1;
+        }*/
+
         // Default values
-        let drinkId = 'americano';
-        let size = 'm';
-        let quantity = 1;
+        let drinkId = ('drinkId' in params) ? params['drinkId'] : 'americano';
+        let size = ('size' in params) ? params['size'] : 'm';
+        let quantity = ('quantity' in params) ? params['quantity'] : 1;
 
         // Size quantifiers
         const sizeQuantifiers = { 's': 0.1, 'm': 0.2, 'l': 0.3 };
