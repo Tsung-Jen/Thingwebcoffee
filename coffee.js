@@ -9,6 +9,7 @@ class ThingWebCoffee {
       properties: {
         allAvailableResources: {
           type: 'object',
+          observable: true,
           description: `Current level of all available resources given as an integer percentage for each particular resource.
 The data is obtained from the machine's sensors but can be set manually via the availableResourceLevel property in case the sensors are broken.`,
           readOnly: true,
@@ -209,16 +210,19 @@ Assumes one medium americano if not specified, but time and mode are mandatory f
         notify('admin@coffeeMachine.com', `maintenanceNeeded property has changed, new value is: ${data}`);
       });
 
+      
+
       // Override a write handler for servedCounter property,
       // raising maintenanceNeeded flag when the value exceeds 1000 drinks
       thing.setPropertyWriteHandler('servedCounter', (val) => {
         return new Promise((resolve, reject) => {
           resolve(val);
-          if (val > 1000) {
+          if (val > 105) {
             thing.writeProperty('maintenanceNeeded', true);
           }
         });
       });
+
 
       // Now initialize the servedCounter property
       thing.writeProperty('servedCounter', readFromSensor('servedCounter'));
@@ -342,6 +346,8 @@ Assumes one medium americano if not specified, but time and mode are mandatory f
           resolve({ result: false, message: `Please provide all the required parameters: time and mode.` });
         });
       });
+
+      
 
       // Finally expose the thing
       thing.expose().then(() => { console.info(`${thing.getThingDescription().title} ready`); });
