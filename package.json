@@ -9,7 +9,7 @@
   "author": "Jose Maza",
   "license": "MIT",
   "dependencies": {
-    "@node-wot/binding-http": "^0.7.1",
-    "@node-wot/core": "^0.7.1"
+    "@node-wot/binding-http": "^0.7.8",
+    "@node-wot/core": "^0.7.8"
   }
 }
