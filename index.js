@@ -15,3 +15,5 @@ servient.addServer(httpServer);
 servient.start().then((WoT) => {
   test_thing = new ThingWebCoffee(WoT, TD_DIRECTORY);
 })
+
+exports.ThingWebCoffee = ThingWebCoffee;
